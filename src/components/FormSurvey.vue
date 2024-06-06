@@ -52,7 +52,6 @@ const initializeRecaptcha = () => {
 }
 
 const renderRecaptcha = () => {
-	console.log('renderRecaptcha')
 	grecaptcha.ready(function() {
 		widgetId = grecaptcha.render("nn-invest-form__captcha", {
 			sitekey: window.captchaKey
@@ -246,17 +245,6 @@ const sendRequest = () => {
 	} else {
 		captchaError.value = "Это поле не заполнено"
 	}
-
-	// emit('sendData', {
-	// 		...requestData,
-	// 	m: encryptWithAES(window.mouseCoordinates, surveyData.value.sessid),
-	// 	t: encryptWithAES(window.touchCoordinates, surveyData.value.sessid),
-	// 	c: encryptWithAES(window.clickCoordinates, surveyData.value.sessid),
-	// 	k: encryptWithAES(window.keyPresses, surveyData.value.sessid),
-	// 	id: surveyData.value.id,
-	// 	sessid: surveyData.value.sessid,
-	// 	}
-	// )
 }
 
 const formatDateToDDMMYYYY = (value) => {

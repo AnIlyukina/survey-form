@@ -1,59 +1,28 @@
 <script setup>
+import {computed, onMounted, ref} from "vue";
 import FormSurvey from "./components/FormSurvey.vue";
 import FormSubmissionStatus from "./components/FormSubmissionStatus.vue";
-import {computed, onMounted, ref} from "vue";
+import {getSurveyData, saveSurveyData} from './api/survey.js';
 
 const  isSendRequestSuccess = ref(false)
 
 let surveyData = ref(null);
-const getSurveyData = async () => {
-	const id = getSurveyId();
+
+const loadSurveyData = async () => {
 	try {
-		const response = await fetch(window.location.origin + '/ajax/vote.php?id=' + id);
-		//const response = await fetch('https://anna.nn-invest.tz365.ru' + '/ajax/vote.php?id=' + 29);
-		if (!response.ok) {
-			throw new Error('Failed to fetch poll data');
-		}
-		surveyData.value = await response.json()
+		surveyData.value = await getSurveyData();
 	} catch (error) {
-		console.error("Error loading poll data:", error);
+		console.error('Error loading survey data:', error);
 	}
+};
 
-	// try {
-	// 	const response = await fetch('./src/questions.json');
-	// 	if (!response.ok) {
-	// 		throw new Error('Failed to fetch poll data');
-	// 	}
-	// 	surveyData.value = await response.json()
-	// } catch (error) {
-	// 	console.error("Error loading poll data:", error);
-	// }
-}
-
-const sendData = async (data) => {
-	const id = getSurveyId();
+const submitSurvey = async (data) => {
 	try {
-		const response = await fetch(window.location.origin + '/ajax/vote.php?id=' + id, {
-			method: "POST",
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		});
-
-		if (!response.ok) {
-			throw new Error('Failed to fetch poll data');
-		}
-
+		await saveSurveyData(data);
 		isSendRequestSuccess.value = true
 	} catch (error) {
-		console.error("Error loading poll data:", error);
+		console.error('Error sending survey data:', error);
 	}
-}
-
-const getSurveyId = () => {
-	const query = new URLSearchParams(window.location.search);
-	return query.get('id');
 }
 
 const getThemeClass = computed(() => {
@@ -67,12 +36,12 @@ const getThemeClass = computed(() => {
 	return groupTypeToClass[surveyData.value?.groupCode] || 'group__a';
 });
 
-onMounted(getSurveyData);
-
 window.grecaptchaLoaded = function() {
-	console.log('grecaptchaLoaded')
 	window.dispatchEvent(new Event('grecaptchaLoaded'));
 };
+
+onMounted(loadSurveyData);
+
 </script>
 
 <template>
@@ -80,7 +49,7 @@ window.grecaptchaLoaded = function() {
 		<FormSurvey
 			v-if="!isSendRequestSuccess && surveyData"
 			:surveyData="surveyData"
-			@sendData="sendData"
+			@sendData="submitSurvey"
 		/>
 		<FormSubmissionStatus
 			v-if="isSendRequestSuccess"

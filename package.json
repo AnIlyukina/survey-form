@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode development",
+    "build": "vite build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^8.3.1",
+    "axios": "^1.7.2",
     "crypto-js": "^4.2.0",
     "vue": "^3.4.21"
   },
