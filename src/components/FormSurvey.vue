@@ -1,9 +1,13 @@
 <script setup>
 import {computed, onBeforeUnmount, onMounted, reactive, ref, toRefs} from "vue";
 import FieldsByStep from "./FieldsByStep.vue";
-import CryptoJS from "crypto-js";
 import FormTitles from "./FormTitles.vue";
 import UIButton from "./blockTypes/UIButton.vue";
+
+import { checkValidByType } from "../utils/validation.js";
+import { encryptWithAES } from '../utils/encryption.js';
+import { formatDateToDDMMYYYY } from '../utils/helpers.js';
+import { initializeRecaptcha, renderRecaptcha } from '../utils/recaptcha.js';
 
 const props = defineProps({
 	surveyData: {
@@ -15,12 +19,11 @@ const props = defineProps({
 const emit = defineEmits(['sendData'])
 
 const {surveyData} = toRefs(props);
+let numberOfPreviousSteps = ref(0);
+let requestData = reactive({});
+let captchaError = ref('');
+let widgetId;
 
-const defaultValidationError = {}
-
-let numberOfPreviousSteps = ref(0)
-
-let requestData = reactive({})
 
 const state = reactive({
 	groupType: surveyData.value.groupType,
@@ -35,29 +38,9 @@ const state = reactive({
 	},
 });
 
-let widgetId;
-let captchaError = ref('');
-
 const setInitialData = () => {
 	state.fieldsByStep = getFieldsByStep(surveyData.value.questions);
 }
-
-const initializeRecaptcha = () => {
-	if (window.grecaptcha) {
-		renderRecaptcha();
-	} else {
-		// слушатель на grecaptchaLoaded устанавливаю в основном компоненте App
-		window.addEventListener('grecaptchaLoaded', renderRecaptcha);
-	}
-}
-
-const renderRecaptcha = () => {
-	grecaptcha.ready(function() {
-		widgetId = grecaptcha.render("nn-invest-form__captcha", {
-			sitekey: window.captchaKey
-		});
-	});
-};
 
 const getFieldsByStep = (items) => {
 	return items.reduce((accumulator, currentValue) => {
@@ -154,8 +137,7 @@ const isLastStep = computed(() => {
 })
 
 const checkValidForm = () => {
-	state.validationError.errors = {...defaultValidationError}
-	// console.log(currentFields.value, 'currentFields.value')
+	state.validationError.errors = {}
 	// прохожу по всем видимым полям
 
 	let fieldForCheck = []
@@ -205,30 +187,6 @@ const checkValidForm = () => {
 	return Object.keys(state.validationError.errors).length === 0
 }
 
-const checkValidByType = (type, value) => {
-	if (type === 'INN') {
-		return String(value).length === 10 || String(value).length === 12 ? '' : 'Введите корректный ИНН'
-	}
-	if (type === 'PHONE') {
-		let pattern1 = /^8\d{10}$/;
-		let pattern2 = /^\+7\d{10}$/;
-		return pattern1.test(value) || pattern2.test(value) ? "" : "Введите телефон в формате +7хххххххххх или 8хххххххххх";
-	}
-
-	if (type === 'EMAIL') {
-		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		const isValid = re.test(String(value).toLowerCase());
-		return !isValid ? 'Введите корректный email' : ''
-	}
-}
-
-const encryptWithAES = (array, sessid) => {
-	if (Array.isArray(array)) {
-		let passphrase = array.map(JSON.stringify).join(',')
-		return CryptoJS.AES.encrypt(passphrase, String(sessid)).toString();
-	}
-};
-
 const sendRequest = () => {
 	if (grecaptcha.getResponse(widgetId)) {
 		captchaError.value = ""
@@ -246,15 +204,6 @@ const sendRequest = () => {
 		captchaError.value = "Это поле не заполнено"
 	}
 }
-
-const formatDateToDDMMYYYY = (value) => {
-	const date = value;
-	const day = date.getDate().toString().padStart(2, '0');
-	const month = (date.getMonth() + 1).toString().padStart(2, '0');
-	const year = date.getFullYear();
-	return `${day}.${month}.${year}`;
-}
-
 
 // Функция для сохранения текущего состояния
 const saveCurrentState = () => {
@@ -285,7 +234,6 @@ const scrollToError = () => {
 		errorElement.scrollIntoView({block: "center", behavior: "smooth"})
 	}
 }
-
 
 // Функция для переключения состояния показа ошибки валидации
 const toggleValidationError = (isValid) => {
@@ -351,7 +299,7 @@ const changeCurrentStep = (step) => {
 }
 
 onMounted(() => {
-	initializeRecaptcha()
+	initializeRecaptcha(() => renderRecaptcha(window.captchaKey, id => widgetId = id));
 	setInitialData()
 });
 

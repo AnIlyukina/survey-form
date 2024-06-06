@@ -5,7 +5,6 @@ import FormSubmissionStatus from "./components/FormSubmissionStatus.vue";
 import {getSurveyData, saveSurveyData} from './api/survey.js';
 
 const  isSendRequestSuccess = ref(false)
-
 let surveyData = ref(null);
 
 const loadSurveyData = async () => {
@@ -35,10 +34,6 @@ const getThemeClass = computed(() => {
 
 	return groupTypeToClass[surveyData.value?.groupCode] || 'group__a';
 });
-
-window.grecaptchaLoaded = function() {
-	window.dispatchEvent(new Event('grecaptchaLoaded'));
-};
 
 onMounted(loadSurveyData);
 
