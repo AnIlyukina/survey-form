@@ -54,11 +54,15 @@ const getFieldsByStep = (items) => {
 }
 
 const currentFields = computed(() => {
-	const result = state.fieldsByStep[state.currentStep] ?? [];
+	return getVisibleFields(state.fieldsByStep[state.currentStep] ?? [], state.formData);
+});
+
+
+const getVisibleFields = (fields, formData) => {
 	const visibilityMap = new Map();
 	const childrenMap = new Map();
-	// Создание иерархии зависимостей
-	result.forEach(item => {
+
+	fields.forEach(item => {
 		if (item.condition) {
 			item.condition.forEach(condition => {
 				if (!childrenMap.has(condition.id)) {
@@ -70,55 +74,39 @@ const currentFields = computed(() => {
 		visibilityMap.set(item.id, true);
 	});
 
-
-	// Оценка условий видимости
 	const evaluateVisibility = (id, isVisible) => {
 		visibilityMap.set(id, isVisible);
 		if (childrenMap.has(id)) {
 			childrenMap.get(id).forEach(childId => evaluateVisibility(childId, isVisible));
 		}
 	};
-	result.forEach(item => {
+
+	fields.forEach(item => {
 		if (item.conditions) {
-
-			// сгруппировать условия (все последовательные условия и в один массив)
-			let conditionGroups = {};
-			let indexGroup = 1
-			item.conditions.forEach((item, index) => {
-				if (index === 0) {
-					conditionGroups[indexGroup] = [item]
+			const conditionGroups = item.conditions.reduce((groups, condition, index) => {
+				const groupIndex = groups.length - 1;
+				if (index === 0 || condition.logic === 'or') {
+					groups.push([condition]);
 				} else {
-					if (item.logic === 'and') {
-						conditionGroups[indexGroup].push(item)
-					} else {
-						indexGroup += 1
-						conditionGroups[indexGroup] = [item]
-					}
+					groups[groupIndex].push(condition);
 				}
-			})
+				return groups;
+			}, []);
 
-			let isCompleted = false;
-
-			let groups = Object.values(conditionGroups)
-			for (let i = 0; i < groups.length; i++) {
-				if (isCompleted) break
-				isCompleted = groups[i].every(group => {
-					const valueToCheck = state.formData[group.id];
+			const isCompleted = conditionGroups.some(group => {
+				return group.every(condition => {
+					const valueToCheck = formData[condition.id];
 					if (Array.isArray(valueToCheck)) {
-						if (group.condition === "==") {
-							return valueToCheck.includes(group.value)
-						} else {
-							return !valueToCheck.includes(group.value)
-						}
+						return condition.condition === "=="
+							? valueToCheck.includes(condition.value)
+							: !valueToCheck.includes(condition.value);
 					} else {
-						if (group.condition === "==") {
-							return valueToCheck && group.value === valueToCheck
-						} else {
-							return valueToCheck && group.value !== valueToCheck
-						}
+						return condition.condition === "=="
+							? valueToCheck === condition.value
+							: valueToCheck !== condition.value;
 					}
-				})
-			}
+				});
+			});
 
 			if (!isCompleted) {
 				evaluateVisibility(item.id, false);
@@ -126,14 +114,19 @@ const currentFields = computed(() => {
 		}
 	});
 
-	// Фильтрация элементов
-	return result.filter(item => visibilityMap.get(item.id));
-});
-
+	return fields.filter(item => visibilityMap.get(item.id));
+};
 
 const isLastStep = computed(() => {
-	let steps = Object.keys(state.fieldsByStep)
-	return state.currentStep === Number(steps[steps.length - 1])
+	// Общее количество шагов
+	let steps = Object.keys(state.fieldsByStep).reverse()[0]
+
+	// Если текущий меньше общего, то проверяем наличие заполняемых полей
+	if (state.currentStep < steps) {
+		let fields = getVisibleFields(state.fieldsByStep[state.currentStep + 1] ?? [], state.formData);
+		return fields.length === 0
+	}
+	return true
 })
 
 const checkValidForm = () => {
@@ -229,7 +222,6 @@ const saveCurrentState = () => {
 const scrollToError = () => {
 	const errorId = Object.keys(state.validationError.errors)[0]
 	let errorElement = document.querySelector(`#${errorId}`)
-	//console.log(errorElement, 'errorElement')
 	if (errorElement) {
 		errorElement.scrollIntoView({block: "center", behavior: "smooth"})
 	}
@@ -277,12 +269,6 @@ const updateStepAndValidate = (step) => {
 	} else {
 		scrollToError()
 	}
-
-	// if (!isLastStep.value) {
-	// 	state.currentStep += 1;
-	// } else if (isLastStep.value) {
-	// 	sendRequest()
-	// }
 };
 
 const changeCurrentStep = (step) => {
