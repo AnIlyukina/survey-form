@@ -5,7 +5,7 @@
   "groupName": "«ИНСТИТУТЫ ДЛЯ БИЗНЕСА»",
   "title": "Фактор Б2 «Административное давление на бизнес»",
   "description": "",
-  "sessid": "826b9e640e7ceb5c30afa500856c4193",
+  "sessid": "12743aa24d8f342e5e074d990398a089",
   "questions": [
     {
       "id": "vote_field_409",
@@ -18,17 +18,7 @@
       "step": 1,
       "conditions": null,
       "answers": [],
-      "items": [
-        {
-          "id": "vote_field_409",
-          "sort": "100",
-          "type": "TEXT",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_field_410",
@@ -41,17 +31,7 @@
       "step": 1,
       "conditions": null,
       "answers": [],
-      "items": [
-        {
-          "id": "vote_field_410",
-          "sort": "200",
-          "type": "TEXT",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_field_411",
@@ -64,17 +44,7 @@
       "step": 1,
       "conditions": null,
       "answers": [],
-      "items": [
-        {
-          "id": "vote_field_411",
-          "sort": "300",
-          "type": "INN",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_field_412",
@@ -87,17 +57,7 @@
       "step": 1,
       "conditions": null,
       "answers": [],
-      "items": [
-        {
-          "id": "vote_field_412",
-          "sort": "400",
-          "type": "PHONE",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_field_413",
@@ -110,17 +70,7 @@
       "step": 1,
       "conditions": null,
       "answers": [],
-      "items": [
-        {
-          "id": "vote_field_413",
-          "sort": "500",
-          "type": "EMAIL",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_185",
@@ -142,26 +92,7 @@
           "text": "Нет"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_185",
-          "sort": "10000",
-          "type": "RADIO",
-          "title": "Да",
-          "placeholder": null,
-          "required": true,
-          "comments": "Под контрольно-надзорными мероприятиями понимаются все федеральные, региональные и муниципальные проверки, составление протоколов и проведение административных расследований, допросы, опросы и другие юридически значимые действия, включая мероприятия, связанные с проверками контрагентов"
-        },
-        {
-          "id": "vote_radio_185",
-          "sort": "10000",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": "Под контрольно-надзорными мероприятиями понимаются все федеральные, региональные и муниципальные проверки, составление протоколов и проведение административных расследований, допросы, опросы и другие юридически значимые действия, включая мероприятия, связанные с проверками контрагентов"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_dropdown_186",
@@ -201,17 +132,7 @@
           "text": "5"
         }
       ],
-      "items": [
-        {
-          "id": "vote_dropdown_186",
-          "sort": "10100",
-          "type": "GRADE",
-          "title": "1",
-          "placeholder": null,
-          "required": true,
-          "comments": "Шкала оценки критериев: 1 – очень плохо, 2 – скорее плохо, 3 – нейтрально, 4 – хорошо, 5 – отлично"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_field_426",
@@ -230,17 +151,7 @@
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_field_426",
-          "sort": "10200",
-          "type": "NUMBER",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": "Под контрольно-надзорными мероприятиями понимаются все федеральные, региональные и муниципальные проверки, составление протоколов и проведение административных расследований, допросы, опросы и другие юридически значимые действия включая мероприятия, связанные с проверками контрагентов"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_field_1487",
@@ -249,7 +160,7 @@
       "title": "Со стороны органов надзора какого уровня и в каком количестве в отношении Вашей организации проводились контрольно-надзорные мероприятия за последние 12 месяцев?",
       "comments": "Укажите количество мероприятий",
       "placeholder": null,
-      "required": false,
+      "required": true,
       "step": 2,
       "conditions": [
         {
@@ -258,42 +169,42 @@
           "value": 414
         }
       ],
-      "answers": [],
+      "answers": null,
       "items": [
         {
           "id": "vote_field_1484",
-          "sort": "10450",
+          "sort": "200",
           "type": "TEXT",
           "title": "Федерального уровня:",
           "placeholder": null,
-          "required": false,
+          "required": true,
           "comments": "Укажите количество мероприятий"
         },
         {
           "id": "vote_field_1485",
-          "sort": "10450",
+          "sort": "300",
           "type": "TEXT",
           "title": "Регионального уровня:",
           "placeholder": null,
-          "required": false,
+          "required": true,
           "comments": "Укажите количество мероприятий"
         },
         {
           "id": "vote_field_1486",
-          "sort": "10450",
+          "sort": "500",
           "type": "TEXT",
           "title": "Муниципального уровня:",
           "placeholder": null,
-          "required": false,
+          "required": true,
           "comments": "Укажите количество мероприятий"
         },
         {
           "id": "vote_field_1487",
-          "sort": "10450",
+          "sort": "600",
           "type": "TEXT",
           "title": "Не знаю, кто приходил:",
           "placeholder": null,
-          "required": false,
+          "required": true,
           "comments": "Укажите количество мероприятий"
         }
       ]
@@ -305,6 +216,116 @@
       "title": "Укажите какие органы надзора проводили контрольно-надзорные мероприятия за последние 12 месяцев и сколько раз:",
       "comments": "Укажите количество мероприятий",
       "placeholder": null,
+      "required": true,
+      "step": 2,
+      "conditions": [
+        {
+          "id": "vote_radio_185",
+          "condition": "==",
+          "value": 414
+        }
+      ],
+      "answers": null,
+      "items": [
+        {
+          "id": "vote_field_1488",
+          "sort": "200",
+          "type": "TEXT",
+          "title": "Роспотребнадзор",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1489",
+          "sort": "300",
+          "type": "TEXT",
+          "title": "Роструд",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1490",
+          "sort": "400",
+          "type": "TEXT",
+          "title": "Ространснадзор",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1491",
+          "sort": "500",
+          "type": "TEXT",
+          "title": "МЧС России",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1492",
+          "sort": "600",
+          "type": "TEXT",
+          "title": "Органы прокуратуры",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1493",
+          "sort": "700",
+          "type": "TEXT",
+          "title": "Ростехнадзор",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1494",
+          "sort": "800",
+          "type": "TEXT",
+          "title": "Федеральная таможенная служба России",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1495",
+          "sort": "900",
+          "type": "TEXT",
+          "title": "Россельхознадзор",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1496",
+          "sort": "1000",
+          "type": "TEXT",
+          "title": "Федеральная налоговая служба России",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        },
+        {
+          "id": "vote_field_1497",
+          "sort": "1100",
+          "type": "TEXT",
+          "title": "МВД России",
+          "placeholder": null,
+          "required": true,
+          "comments": "Укажите количество мероприятий"
+        }
+      ]
+    },
+    {
+      "id": "vote_checkbox_556",
+      "sort": "10600",
+      "type": "CHECKBOX",
+      "title": "Другие:",
+      "comments": "",
+      "placeholder": null,
       "required": false,
       "step": 2,
       "conditions": [
@@ -314,99 +335,13 @@
           "value": 414
         }
       ],
-      "answers": [],
-      "items": [
+      "answers": [
         {
-          "id": "vote_field_1488",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Роспотребнадзор",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1489",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Роструд",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1490",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Ространснадзор",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1491",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "МЧС России",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1492",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Органы прокуратуры",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1493",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Ростехнадзор",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1494",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Федеральная таможенная служба России",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1495",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Россельхознадзор",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1496",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "Федеральная налоговая служба России",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
-        },
-        {
-          "id": "vote_field_1497",
-          "sort": "10500",
-          "type": "TEXT",
-          "title": "МВД России",
-          "placeholder": null,
-          "required": false,
-          "comments": "Укажите количество мероприятий"
+          "id": 1505,
+          "text": "Другие"
         }
-      ]
+      ],
+      "items": null
     },
     {
       "id": "vote_memo_1308",
@@ -419,23 +354,13 @@
       "step": 2,
       "conditions": [
         {
-          "id": "vote_radio_185",
+          "id": "vote_checkbox_556",
           "condition": "==",
-          "value": 414
+          "value": 1505
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_memo_1308",
-          "sort": "11950",
-          "type": "TEXTAREA",
-          "title": " ",
-          "placeholder": null,
-          "required": false,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_214",
@@ -463,26 +388,7 @@
           "text": "Нет"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_214",
-          "sort": "12000",
-          "type": "RADIO",
-          "title": "Да",
-          "placeholder": null,
-          "required": true,
-          "comments": "Под установленным порядком проведения понимаются права и обязанности Ваши и органа надзора, основания для проведения мероприятий, запрашиваемые документы, необходимость согласования с органами прокуратуры и уведомления Вас"
-        },
-        {
-          "id": "vote_radio_214",
-          "sort": "12000",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": "Под установленным порядком проведения понимаются права и обязанности Ваши и органа надзора, основания для проведения мероприятий, запрашиваемые документы, необходимость согласования с органами прокуратуры и уведомления Вас"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_516",
@@ -516,26 +422,7 @@
           "text": "Нет"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_516",
-          "sort": "12020",
-          "type": "RADIO",
-          "title": "Да",
-          "placeholder": null,
-          "required": true,
-          "comments": "Нарушение Ваших прав и возложение не предусмотренных законом обязанностей, безосновательное проведение мероприятия, запрос не предусмотренных документов, несогласование проверки с органами прокуратуры, не уведомление Вас о проведении проверки и др.?"
-        },
-        {
-          "id": "vote_radio_516",
-          "sort": "12020",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": "Нарушение Ваших прав и возложение не предусмотренных законом обязанностей, безосновательное проведение мероприятия, запрос не предусмотренных документов, несогласование проверки с органами прокуратуры, не уведомление Вас о проведении проверки и др.?"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_memo_1309",
@@ -554,17 +441,7 @@
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_memo_1309",
-          "sort": "12050",
-          "type": "TEXTAREA",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": "По факту использования проверочных листов при проверках, фактам нарушения порядка проведения контрольно-надзорных мероприятий и методам административного давления (получение разрешительных документов, блокировка расчетных счетов и прочее)"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_216",
@@ -596,35 +473,7 @@
           "text": "Нет"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_216",
-          "sort": "12100",
-          "type": "RADIO",
-          "title": "Да, всегда",
-          "placeholder": null,
-          "required": true,
-          "comments": "Проверочные листы – это документ, разработанный органами государственного или муниципального контроля, содержащий перечни контрольных вопросов, ответы на которые однозначно свидетельствуют о соблюдении или несоблюдении объектом проверки обязательных требований, составляющих предмет проверки"
-        },
-        {
-          "id": "vote_radio_216",
-          "sort": "12100",
-          "type": "RADIO",
-          "title": "Да, но не во всех контрольно-надзорных мероприятиях",
-          "placeholder": null,
-          "required": true,
-          "comments": "Проверочные листы – это документ, разработанный органами государственного или муниципального контроля, содержащий перечни контрольных вопросов, ответы на которые однозначно свидетельствуют о соблюдении или несоблюдении объектом проверки обязательных требований, составляющих предмет проверки"
-        },
-        {
-          "id": "vote_radio_216",
-          "sort": "12100",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": "Проверочные листы – это документ, разработанный органами государственного или муниципального контроля, содержащий перечни контрольных вопросов, ответы на которые однозначно свидетельствуют о соблюдении или несоблюдении объектом проверки обязательных требований, составляющих предмет проверки"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_220",
@@ -668,35 +517,7 @@
           "text": "Не изменилось"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_220",
-          "sort": "12150",
-          "type": "RADIO",
-          "title": "Да",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_radio_220",
-          "sort": "12150",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_radio_220",
-          "sort": "12150",
-          "type": "RADIO",
-          "title": "Не изменилось",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_memo_467",
@@ -721,17 +542,7 @@
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_memo_467",
-          "sort": "12200",
-          "type": "TEXTAREA",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": "Укажите наименование контрольно-надзорного органа, вид контроля (надзора), количество таких проверочных мероприятий"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_222",
@@ -759,26 +570,7 @@
           "text": "Нет"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_222",
-          "sort": "12400",
-          "type": "RADIO",
-          "title": "Да",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_radio_222",
-          "sort": "12400",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_radio_517",
@@ -806,26 +598,7 @@
           "text": "Нет"
         }
       ],
-      "items": [
-        {
-          "id": "vote_radio_517",
-          "sort": "20000",
-          "type": "RADIO",
-          "title": "Да",
-          "placeholder": null,
-          "required": true,
-          "comments": "Коррупция – злоупотребление служебным положением, дача взятки, получение взятки, злоупотребление полномочиями, коммерческий подкуп, либо иное незаконное использование физическим лицом своего должностного положения вопреки законным интересам общества и государства, в целях получения выгоды в виде денег, ценностей, иного имущества или услуг имущественного характера, иных имущественных прав для себя или для третьих лиц, либо незаконное предоставление такой выгоды указанному лицу другими физическими лицами; а также совершение указанных деяний от имени или в интересах юридического лица"
-        },
-        {
-          "id": "vote_radio_517",
-          "sort": "20000",
-          "type": "RADIO",
-          "title": "Нет",
-          "placeholder": null,
-          "required": true,
-          "comments": "Коррупция – злоупотребление служебным положением, дача взятки, получение взятки, злоупотребление полномочиями, коммерческий подкуп, либо иное незаконное использование физическим лицом своего должностного положения вопреки законным интересам общества и государства, в целях получения выгоды в виде денег, ценностей, иного имущества или услуг имущественного характера, иных имущественных прав для себя или для третьих лиц, либо незаконное предоставление такой выгоды указанному лицу другими физическими лицами; а также совершение указанных деяний от имени или в интересах юридического лица"
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_checkbox_518",
@@ -875,62 +648,7 @@
           "text": "Не могу предоставить информацию"
         }
       ],
-      "items": [
-        {
-          "id": "vote_checkbox_518",
-          "sort": "20100",
-          "type": "CHECKBOX",
-          "title": "Правоохранительные органы",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_518",
-          "sort": "20100",
-          "type": "CHECKBOX",
-          "title": "Иные контрольно-надзорные органы",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_518",
-          "sort": "20100",
-          "type": "CHECKBOX",
-          "title": "Органы судебной власти",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_518",
-          "sort": "20100",
-          "type": "CHECKBOX",
-          "title": "Органы законодательной власти",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_518",
-          "sort": "20100",
-          "type": "CHECKBOX",
-          "title": "Естественные монополии",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_518",
-          "sort": "20100",
-          "type": "CHECKBOX",
-          "title": "Не могу предоставить информацию",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_memo_1320",
@@ -955,17 +673,7 @@
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_memo_1320",
-          "sort": "20200",
-          "type": "TEXTAREA",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_checkbox_520",
@@ -1039,116 +747,7 @@
           "text": "Не могу предоставить информацию"
         }
       ],
-      "items": [
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Роспотребнадзор",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Роструд",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Ространснадзор",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "МЧС России",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Органы прокуратуры",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Ростехнадзор",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Федеральная таможенная служба России",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Россельхознадзор",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Федеральная налоговая служба России",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "МВД России",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Другие",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        },
-        {
-          "id": "vote_checkbox_520",
-          "sort": "20300",
-          "type": "CHECKBOX",
-          "title": "Не могу предоставить информацию",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_memo_1333",
@@ -1173,17 +772,7 @@
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_memo_1333",
-          "sort": "20400",
-          "type": "TEXTAREA",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     },
     {
       "id": "vote_memo_1334",
@@ -1202,17 +791,7 @@
         }
       ],
       "answers": [],
-      "items": [
-        {
-          "id": "vote_memo_1334",
-          "sort": "20500",
-          "type": "TEXTAREA",
-          "title": " ",
-          "placeholder": null,
-          "required": true,
-          "comments": ""
-        }
-      ]
+      "items": null
     }
   ]
 }
